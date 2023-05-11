@@ -1,0 +1,200 @@
+[
+  {
+    "brand": "apple",
+    "category": "tv",
+    "name": "Apple TV",
+    "price": 149.99,
+    "description": "Watch your favorite movies and TV shows with Apple TV.",
+    "tags": ["streaming", "entertainment", "TV", "apple", "tv"],
+    "img": "assets/imgs/products/apple-tv.jpeg"
+  },
+  {
+    "brand": "apple",
+    "category": "laptop",
+    "name": "MacBook Pro",
+    "price": 1299.99,
+    "description": "Powerful and portable laptop for professionals and creatives.",
+    "tags": ["professional", "creative", "portable", "apple", "laptop"],
+    "img": "assets/imgs/products/macbook13.jpeg"
+  },
+  {
+    "brand": "apple",
+    "category": "phone",
+    "name": "iPhone 13",
+    "price": 999.99,
+    "description": "The latest and greatest iPhone with advanced features and performance.",
+    "tags": ["smartphone", "iOS", "camera", "apple", "phone"],
+    "img": "assets/imgs/products/iphone13.jpeg"
+  },
+  {
+    "brand": "apple",
+    "category": "phone",
+    "name": "iPhone 14",
+    "price": 1200,
+    "description": "The latest and greatest iPhone with advanced features and performance.",
+    "tags": ["smartphone", "iOS", "camera", "apple", "phone"],
+    "img": "assets/imgs/products/iphone13.jpeg"
+  },
+  {
+    "brand": "apple",
+    "category": "headphone",
+    "name": "Airpod MAX",
+    "price": 499.99,
+    "description": "High-quality noise-cancelling headphones with advanced features.",
+    "tags": ["audio", "noise-cancelling", "wireless", "headphone","apple"],
+    "img": "assets/imgs/products/airmax.jpeg"
+  },
+  {
+    "brand": "apple",
+    "category": "game",
+    "name": "Apple Arcade",
+    "price": 4.99,
+    "description": "Access a wide range of games with Apple Arcade subscription.",
+    "tags": ["gaming", "subscription", "family", "apple", "game"],
+    "img": "assets/imgs/products/apple-arcade.jpeg"
+  },
+  {
+    "brand": "samsung",
+    "category": "tv",
+    "name": "Samsung QLED 4K TV",
+    "price": 1399.99,
+    "description": "Experience crystal-clear picture quality with Samsung's QLED 4K TV.",
+    "tags": ["smart TV", "4K", "HDR", "samsung", "tv"],
+    "img": "assets/imgs/products/sam-oled.jpeg"
+  },
+  {
+    "brand": "samsung",
+    "category": "laptop",
+    "name": "Samsung Galaxy Book Pro",
+    "price": 1099.99,
+    "description": "Thin and light laptop with long battery life and powerful performance.",
+    "tags": ["portable", "performance", "battery life", "samsung", "laptop"],
+    "img": "assets/imgs/products/galaxybook.jpeg"
+  },
+  {
+    "brand": "samsung",
+    "category": "phone",
+    "name": "Samsung Galaxy S21",
+    "price": 799.99,
+    "description": "Powerful smartphone with advanced camera and video features.",
+    "tags": ["smartphone", "camera", "video", "samsung", "phone", "smartphone"],
+    "img": "assets/imgs/products/s21.jpeg"
+  },
+  {
+    "brand": "lg",
+    "category": "laptop",
+    "name": "LG Gram 17Z90P - 17 Inch ",
+    "price": 1599.99,
+    "description": "This LG laptop is designed to be ultra-lightweight without compromising on performance.",
+    "tags": ["17-inch", "WQXGA", "IPS", "lg", "laptop"],
+    "img": "assets/imgs/products/lglaptop.jpeg"
+  },
+  {
+    "brand": "lg",
+    "category": "headphone",
+    "name": "LG TONE Free HBS-FN6 ",
+    "price": 149.99,
+    "description": "Enjoy high-quality sound and comfortable fit with these LG wireless earbuds.",
+    "tags": ["Bluetooth", "wireless", "earbuds", "lg", "headphone"],
+    "img": "assets/imgs/products/lgheadphones.jpeg"
+  },
+  {
+    "brand": "lg",
+    "category": "game",
+    "name": "LG UltraGear 27GN950-B 27 Inch UHD ",
+    "price": 1099.99,
+    "description": "This LG gaming monitor delivers immersive visuals and lightning-fast performance.",
+    "tags": ["27-inch", "UHD", "Nano IPS", "gaming monitor", "lg", "game"],
+    "img": "assets/imgs/products/lgmonitor.jpeg"
+  },
+  {
+    "brand": "beats",
+    "category": "headphone",
+    "name": "Beats by Dr. Dre Powerbeats Wireless Earphones",
+    "price": 149.95,
+    "description": "Experience high-quality audio and secure fit with these Beats wireless earphones.",
+    "tags": ["wireless", "earphones", "headphone", "beats"],
+    "img": "assets/imgs/products/beats.jpeg"
+  },
+  {
+    "brand": "hp",
+    "category": "laptop",
+    "name": "HP Envy x360 13.3\" 2-in-1 Laptop",
+    "price": 849.99,
+    "description": "This versatile HP Envy x360 laptop is ideal for both work and play.",
+    "tags": ["2-in-1", "touchscreen", "13 inch", "laptop", "hp"],
+    "img": "assets/imgs/products/hplaptop.jpeg"
+  },
+  {
+    "brand": "hp",
+    "category": "game",
+    "name": "HP Omen Desktop",
+    "price": 1499.99,
+    "description": "Experience gaming like never before with the HP Omen Desktop.",
+    "tags": ["gaming", "desktop", "Nvidia", "game", "hp"],
+    "img": "assets/imgs/products/hpomen.jpeg"
+  },
+  {
+    "brand": "lenovo",
+    "category": "laptop",
+    "name": "Lenovo IdeaPad 3 15.6\"",
+    "price": 499.99,
+    "description": "Get work done on the go with this Lenovo IdeaPad laptop.",
+    "tags": ["15 inch", "Windows", "lightweight", "lenovo", "laptop"],
+    "img": "assets/imgs/products/lenevo.jpeg"
+  },
+  {
+    "brand": "lenovo",
+    "category": "game",
+    "name": "Lenovo Legion 5i Gaming Laptop",
+    "price": 1299.99,
+    "description": "Take your gaming to the next level with the Lenovo Legion 5i gaming laptop.",
+    "tags": ["gaming", "laptop", "lenovo", "game"],
+    "img": "assets/imgs/products/lenevogamin.jpeg"
+  },
+  {
+    "brand": "logitech",
+    "category": "headphone",
+    "name": "Logitech Noise-Cancelling Headphones",
+    "price": 149.99,
+    "description": "Immerse yourself in your favorite music with these noise-cancelling headphones from Logitech",
+    "tags": ["headphones", "music", "logitech", "headphone"],
+    "img": "assets/imgs/products/logiheadphone.jpeg"
+  },
+  {
+    "brand": "sony",
+    "category": "tv",
+    "name": "Sony 55-Inch 4K TV",
+    "price": 999.99,
+    "description": "Experience stunning visuals with this 55-inch 4K TV from Sony",
+    "tags": ["TV", "4K", "sony", "tv"],
+    "img": "assets/imgs/products/sonytv.jpeg"
+  },
+  {
+    "brand": "sony",
+    "category": "phone",
+    "name": "Sony Xperia 1 III",
+    "price": 1199.99,
+    "description": "Capture stunning photos and stay connected with this flagship phone from Sony",
+    "tags": ["phone", "photography", "sony", "phone", "smartphone"],
+    "img": "assets/imgs/products/sonyphone.jpeg"
+  },
+  {
+    "brand": "sony",
+    "category": "headphone",
+    "name": "Sony WH-1000XM4 Noise-Cancelling Headphones",
+    "price": 349.99,
+    "description": "Enjoy immersive audio with these noise-cancelling headphones from Sony",
+    "tags": ["headphones", "audio", "sony", "headphone"],
+    "img": "assets/imgs/products/sonyheadphone.jpeg"
+  },
+  {
+    "brand": "sony",
+    "category": "game",
+    "name": "Sony PlayStation 5",
+    "price": 499.99,
+    "description": "Experience next-gen gaming with the PlayStation 5 from Sony",
+    "tags": ["gaming", "console", "sony", "game"],
+    "img": "assets/imgs/products/ps5.jpeg"
+  }
+]
