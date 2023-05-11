@@ -15,9 +15,8 @@ name: Lint Code Base
 # Start the job on all push #
 #############################
 on:
+  workflow_dispatch:
   push:
-    branches: [master, main]
-  pull_request:
     branches: [master, main]
 
 ###############
@@ -56,21 +55,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           # ENABLED
+          VALIDATE_JSCPD_ALL_CODEBASE: true
           # VALIDATE_HTML: true
           # VALIDATE_CSS: true
-          # VALIDATE_SCSS: true
           # VALIDATE_JAVASCRIPT_ES: true
           # VALIDATE_TYPESCRIPT_ES: true
           # VALIDATE_TSX: true
           # VALIDATE_JSON: true
           # VALIDATE_SQL: true
-          # VALIDATE_ENV: true
-          # VALIDATE_JAVA: true
-
-          # UNDECIDED
-          VALIDATE_YAML: false
 
           # DISABLED
+          VALIDATE_GITHUB_ACTIONS: false
+          VALIDATE_ENV: false
+          VALIDATE_YAML: false
+          VALIDATE_JAVA: false
           VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_MARKDOWN: false
           VALIDATE_GITLEAKS: false
@@ -110,3 +108,4 @@ jobs:
           VALIDATE_TYPESCRIPT_STANDARD: false
           VALIDATE_V: false
           VALIDATE_XML: false
+          
