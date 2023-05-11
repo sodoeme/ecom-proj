@@ -1,16 +1,24 @@
 const filterOptionsClicked = [0, 0, 0];
-var data = "";
+
+//waits for DOM to load
 window.onload = function () {
     
+//get current url
   const url = window.location.href;
+  // get the name of file at end of url
   const currentPage = url.substr(url.lastIndexOf("/") + 1);
+
+  //intialize arraylists
   let categoryFilters = new ArrayList();
   let brandFilters = new ArrayList();
   let priceFilters = new ArrayList();
   let randomFilters = new ArrayList();
 
+  //get serach button and searchbar
   const searchButton = document.getElementById("search-button");
   const searchBar = document.getElementById("nav-search");
+
+  //create dictionary for known filters
   let categories = ["tv", "laptop", "phone", "headphone", "game"];
   let brands = [
     "apple",
@@ -23,38 +31,55 @@ window.onload = function () {
     "sony",
   ];
 
+  //click event for search button
   searchButton.addEventListener("click", () => {
+    //reset filters
     categoryFilters = new ArrayList();
     brandFilters = new ArrayList();
     priceFilters = new ArrayList();
     randomFilters = new ArrayList();
+    //turn string to lower case
     let searchString = searchBar.value.toLowerCase();
+    // seperate words by white space and add to array
     let searchArr = searchString.split(" ");
+    //iterate through search input
     searchArr.forEach((element) => {
+
+        //if a recognized category phrase add to category filter
       if (categories.includes(element)) {
         categoryFilters.add(element);
-      } else if (brands.includes(element)) {
+      }
+     //if a recognized brand phrase add to category filter
+
+       else if (brands.includes(element)) {
         brandFilters.add(element);
-      } else {
+      } 
+      // if not recognized add to randomFIlter array
+      else {
         randomFilters.add(element);
       }
     });
+    //call filter product functions
     filterProducts(categoryFilters.data, brandFilters.data, randomFilters.data);
-    console.log(categoryFilters, brandFilters);
   });
 
+  // to avoid errors, verify page and execute code according to page
   switch (currentPage) {
     case "index.html":
       //slider
+      //retrieve slider container
       const slidesContainer = document.querySelector(".slides-container");
 
       const slideWidth = slidesContainer.querySelector(".slide").clientWidth;
+      
+      //create refrences for prev and nex btn
       const prevButton = document.querySelector(".prev");
       const nextButton = document.querySelector(".next");
+      //hands next button click 
       nextButton.addEventListener("click", () => {
         slidesContainer.scrollLeft += slideWidth * 2;
       });
-
+      //handles prev button click
       prevButton.addEventListener("click", () => {
         slidesContainer.scrollLeft -= slideWidth * 2;
       });
@@ -65,10 +90,15 @@ window.onload = function () {
     case "catalog.html":
       //filter config
 
+      //array of filter toggles
       const toggleFilter = document.getElementsByClassName("filter-toggle");
+      //array of filters
       const filter = document.getElementsByClassName("filter");
+
+      //loop through toggle filters
       for (let i = 0; i < toggleFilter.length; i++) {
         let element = toggleFilter[i];
+        //click event that excutes hideExpand function passing the element, wether it is already checked and its array position
         element.addEventListener("click", () => {
           switch (element.id) {
             case "category":
@@ -80,7 +110,6 @@ window.onload = function () {
               break;
 
             case "price":
-              document.getElementById("price-options").style.display = "block";
               hideExpand(element, filterOptionsClicked[2], 2);
 
               break;
@@ -88,9 +117,14 @@ window.onload = function () {
         });
       }
 
+      // loop through filters
       for (let i = 0; i < filter.length; i++) {
+        //create element for  current index
         let element = filter[i];
         element.addEventListener("click", () => {
+            //each filter has a filter type
+            //based on the filter type, add to its corresponding filter array list
+            // execute filterProduct function
           switch (element.getAttribute("data-filter-type")) {
             case "category":
               if (element.checked) {
@@ -153,10 +187,12 @@ window.onload = function () {
         });
       }
 
-      //load products
+      // initial load products
+
       fetch("products.json")
         .then((response) => response.json())
         .then((products) => {
+            //call loadProducts function
           loadProducts(products);
         })
         .catch((err) => console.log(err));
@@ -164,8 +200,13 @@ window.onload = function () {
       break;
   }
 
+  // function for collapsing and expanding filter options
   function hideExpand(element, isToggled, i) {
+    //retrive elemnt by id plus "-options"
     let hiddenElement = document.getElementById(`${element.id}-options`);
+    
+    // if element is checked hide and remove from current options clicked
+    //else expand and add to current options clicked
     isToggled
       ? ((hiddenElement.style.display = "none"),
         filterOptionsClicked[i]--,
@@ -176,10 +217,23 @@ window.onload = function () {
   }
 };
 
+
+
+
+
+//Asynchronous function
+//Parameters: Array for: category, brand, and random
 async function filterProducts(categoryFilters, brandFilters, randomFilters) {
+
+  //wait for async process  
   const response = await fetch("products.json");
+  //wait for async process
   data = await response.json();
+
+  // intialize array for products that match filters
   let alreadyAdded = [];
+
+  // if all filters are empty than load all products
   if (
     categoryFilters.length === 0 &&
     brandFilters.length === 0 &&
@@ -189,27 +243,28 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
     return;
   }
 
+  // iterate through all items in json array
   for (let i = 0; i < data.length; i++) {
+
+    //create objeect for current index
     let product = data[i];
+
+    //iterate through the tags array for current object
     for (let x = 0; x < product.tags.length; x++) {
      
-     if(product.name =="iPhone 13"){
-      
-        console.log(categoryFilters.includes(product.category) &&
-        randomFilters.includes(product.tags[x].toLowerCase()) &&
-        brandFilters.includes(product.brand))
-     }
-
+    
+//case that handles when only categooryFilters are present
       if (
         brandFilters.length === 0 &&
         randomFilters.length === 0 &&
         categoryFilters.includes(product.tags[x].toLowerCase())
       ) {
-        console.log("here");
 
         alreadyAdded.push(product);
         break;
       }
+
+      //case that handles when only brandFilters are present
 
       if (
         categoryFilters.length === 0 &&
@@ -222,6 +277,8 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
         break;
       }
 
+      //case that handles when only randomFilters are present
+
       if (
         categoryFilters.length === 0 &&
         brandFilters.length === 0 &&
@@ -230,6 +287,8 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
         alreadyAdded.push(product);
         break;
       }
+
+      //case that handles when only randomFIlters are not present
 
       if (
         randomFilters.length === 0 &&
@@ -241,6 +300,7 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
         alreadyAdded.push(product);
         break;
       }
+      //case that handles when only brandFilters are not present
 
       if (
         brandFilters.length === 0 &&
@@ -252,6 +312,8 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
         break;
       }
 
+            //case that handles when only categoryFilters are not present
+
       if (
         categoryFilters.length === 0 &&
         randomFilters.includes(product.tags[x].toLowerCase()) &&
@@ -261,6 +323,8 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
         alreadyAdded.push(product);
         break;
       }
+
+      //case that handles when all filters are  present
 
       if (
         categoryFilters.includes(product.category) &&
@@ -274,13 +338,22 @@ async function filterProducts(categoryFilters, brandFilters, randomFilters) {
     }
   }
 
+  //after loop ends load added products
   loadProducts(alreadyAdded);
 }
 
+
+//load products function
+//takes a json array, used throughout script file
 function loadProducts(products) {
+    //string that keeps track of created product elements
   let productsHTML = "";
+  //loop through all products
   for (let i = 0; i < products.length; i++) {
+
+    //create object for current index
     let element = products[i];
+    // create product tag
     let product = `
   <li>
     <div class="product-row-item">
@@ -301,12 +374,19 @@ function loadProducts(products) {
       </span>
     </div>
   </li>`;
+
+  //add created product to productsHTML
     productsHTML += product;
   }
+  // find all tags with class name product-row and retrieve first element
   let productsContainer = document.getElementsByClassName("product-row")[0];
+ 
+  //add all products to DOM
   productsContainer.innerHTML = productsHTML;
 }
 
+
+// Arraylist class
 class ArrayList {
   constructor() {
     this.data = [];
