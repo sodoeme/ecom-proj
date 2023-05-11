@@ -44,9 +44,10 @@ window.onload = function () {
   });
 
   switch (currentPage) {
-    case "home.html":
+    case "index.html":
       //slider
       const slidesContainer = document.querySelector(".slides-container");
+
       const slideWidth = slidesContainer.querySelector(".slide").clientWidth;
       const prevButton = document.querySelector(".prev");
       const nextButton = document.querySelector(".next");
